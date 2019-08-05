@@ -22,11 +22,11 @@ if (dev) {
   app.use(morgan("dev"));
 }
 
-app.use(favicon(path.resolve(__dirname, "client", "build", "favicon.png")));
+app.use(express.static(path.resolve(__dirname, "client", "build")));
+app.use(favicon(path.resolve(__dirname, "client", "build", "favicon.ico")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(express.static(path.resolve(__dirname, "client", "build")));
 app.use("/api/projects", require("./routes/projects.route"));
 app.use("/api/user", require("./routes/user.route"));
 app.get("*", (req, res) => {
