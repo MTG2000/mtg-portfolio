@@ -1,0 +1,45 @@
+$primary: rgb(0, 195, 177);
+$secondary: #555;
+
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Merienda&display=swap");
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #444;
+  font-family: "Merienda", cursive, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.my-6 {
+  margin-top: 180px !important;
+  margin-bottom: 180px !important;
+}
+.mt-6 {
+  margin-top: 180px !important;
+}
+.mb-6 {
+  margin-bottom: 180px !important;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.h-bg-primary {
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.h-text-primary {
+  &:hover {
+    color: $primary;
+  }
+}
+
+h2 {
+  line-height: 1.3em;
+}

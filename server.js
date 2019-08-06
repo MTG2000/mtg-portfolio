@@ -6,10 +6,6 @@ const compression = require("compression");
 const path = require("path");
 var favicon = require("serve-favicon");
 
-console.log("SERVEREEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-
-// const db = require("./db/models/index");
-
 const dev = app.get("env") !== "production";
 
 if (!dev) {
