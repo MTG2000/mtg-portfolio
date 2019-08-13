@@ -1,12 +1,10 @@
-const { Project } = require("../db/models");
-const Op = require("sequelize").Op;
-
+const Project = require("../db/models/project");
+// const Op = require("sequelize").Op;
 const getProjects = async limit => {
   try {
-    const result = await Project.findAll({
-      limit,
-      order: [["createdAt", "DESC"]]
-    });
+    const result = await Project.find()
+      .limit(limit)
+      .sort({ createdAt: -1 });
     return result;
   } catch (err) {
     console.log(err);
@@ -16,7 +14,8 @@ const getProjects = async limit => {
 
 const addProject = async data => {
   try {
-    const result = await Project.create(data);
+    const newProject = new Project({ ...data, createdAt: Date.now() });
+    const result = await newProject.save();
     return result;
   } catch (err) {
     console.log(err);

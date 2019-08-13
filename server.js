@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const compression = require("compression");
 const path = require("path");
 var favicon = require("serve-favicon");
+require("./db/config/config");
 
 const dev = app.get("env") !== "production";
 
