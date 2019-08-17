@@ -4,6 +4,7 @@ import ProjectsWrapper from "../ProjectsWrapper";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import classNames from "classnames";
+import { Helmet } from "react-helmet";
 
 const Works = () => {
   document.title = "My Projects";
@@ -19,6 +20,9 @@ const Works = () => {
   );
   return (
     <main className={styles.works}>
+      <Helmet>
+        <meta name="description" content="My latest projects ....." />
+      </Helmet>
       <div className="container py-2 pt-5">
         <h1
           className="display-3 text-primary text-center mt-5 mb-5"

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./style/home.module.scss";
 import { Link } from "react-router-dom";
 import anime from "animejs/lib/anime";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   document.title = "Mtg Dev";
@@ -39,6 +40,12 @@ const Home = () => {
   }, []);
   return (
     <main className={styles.home}>
+      <Helmet>
+        <meta
+          name="description"
+          content="I am Mtg, I am a Web Developer, Got an interesting project ??"
+        />
+      </Helmet>
       <div
         className="container py-2 mx-auto w-100"
         style={{ overflowX: "hidden" }}
