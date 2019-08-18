@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://mtgdev.herokuapp.com/sitemap.xml

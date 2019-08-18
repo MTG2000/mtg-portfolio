@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./style/overlay.module.scss";
+import BgImage from "./programmer-min.jpg";
 
 const Overlay = () => {
   //Makes image loading async
@@ -10,11 +11,7 @@ const Overlay = () => {
 
   return (
     <div className={styles.overlay}>
-      <img
-        lazySrc="https://drive.google.com/uc?id=1HCINISkACsGbnrMDYTi9l4ICyS87Ds_S"
-        alt=""
-        className="overlay-image"
-      />
+      <img lazySrc={BgImage} alt="" className="overlay-image" />
     </div>
   );
 };
