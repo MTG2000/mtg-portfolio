@@ -5,13 +5,13 @@ import BgImage from "./programmer-min.jpg";
 const Overlay = () => {
   //Makes image loading async
   useEffect(() => {
-    const image = document.querySelector("img[lazySrc]");
-    image.setAttribute("src", image.getAttribute("lazySrc"));
+    const image = document.querySelector("img[lazysrc]");
+    image.setAttribute("src", image.getAttribute("lazysrc"));
   }, []);
 
   return (
     <div className={styles.overlay}>
-      <img lazySrc={BgImage} alt="" className="overlay-image" />
+      <img lazysrc={BgImage} alt="" className="overlay-image" />
     </div>
   );
 };

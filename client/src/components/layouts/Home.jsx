@@ -55,23 +55,27 @@ const Home = () => {
           <span className="text-primary display-1 d-inline-block">MTG</span>
           <br />
         </h1>
-        <h2 className="my-work text-white text-center h1 mb-6">
+        <h2 className="my-work text-white text-center h1 ">
           I work as a
-          <span className="text-primary display-4 d-inline-block mx-1">
+          <span className="text-primary display-4 d-inline-block mx-1 mb-5">
             Web Developer
           </span>
         </h2>
-        <h2 className="my-offer text-white text-center ">
+        <h2 className="my-offer text-white text-center mb-5">
           You have an interesting{" "}
           <span className="text-primary d-inline-block">Project</span> & need
           some help ??
         </h2>
-        <div className="d-flex justify-content-center">
+        <div className="row justify-content-center mt-5">
+          <Link
+            to="/projects"
+            className={`my-btn  d-inline-block mx-2 text-primary px-4 py-3 border border-primary ${styles.button}`}
+          >
+            See My Projects
+          </Link>
           <Link
             to="/contact"
-            className={`my-btn my-5 d-inline-block mx-auto text-primary px-4 py-3 border border-primary ${
-              styles.button
-            }`}
+            className={`my-btn  d-inline-block mx-2 text-primary px-4 py-3 border border-primary ${styles.button}`}
           >
             Contact Me Now
           </Link>
