@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import styles from "./style/about.module.scss";
 
 const frontendSkills = [
-  "Html & Css",
-  "Design",
-  "Bootstrap",
-  "Animation",
+  "ReactJs",
+  "Redux",
   "JavaScript",
-  "ReactJs"
+  "Animation",
+  "Bootstrap",
+  "Html & Css"
 ];
 const backendSkills = ["NodeJs", "MySql", "Wordpress"];
 
