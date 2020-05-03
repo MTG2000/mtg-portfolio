@@ -4,19 +4,29 @@ import styles from "./style/about.module.scss";
 const frontendSkills = [
   "ReactJs",
   "Redux",
+  "VueJs",
+  "MobX",
+  "GraphQl",
   "JavaScript",
-  "Animation",
+  "Material UI",
   "Bootstrap",
-  "Html & Css"
+  "Html & Css",
 ];
-const backendSkills = ["NodeJs", "MySql", "Wordpress"];
+const backendSkills = [
+  "NodeJs",
+  "Asp.Net Core",
+  "GraphQl",
+  "MySql",
+  "MongoDB",
+  "Wordpress",
+];
 
 const About = () => {
   document.title = "About me";
 
   useEffect(() => {
     document.querySelectorAll(".my-skills li").forEach((li, i) => {
-      li.setAttribute("data-aos-delay", i * 200);
+      li.setAttribute("data-aos-delay", i * 0);
       // li.setAttribute("data-aos-offset", "0");
     });
   }, []);
@@ -48,14 +58,14 @@ const About = () => {
         <h2
           className="text-primary mt-5"
           data-aos="fade-right"
-          data-aos-offset="0"
           data-aos-delay="400"
+          data-aos-offset="0"
         >
-          Front-end Skills
+          Back-end Skills
         </h2>
-        <h4 className="my-skills px-3 text-white">
+        <h4 className="my-skills px-3 text-white mb-5">
           <ul className="row justify-content-around">
-            {frontendSkills.map(skill => (
+            {backendSkills.map((skill) => (
               <li
                 data-aos="zoom-in"
                 data-aos-offset="0"
@@ -69,14 +79,14 @@ const About = () => {
         <h2
           className="text-primary mt-5"
           data-aos="fade-right"
-          data-aos-delay="400"
           data-aos-offset="0"
+          data-aos-delay="0"
         >
-          Back-end Skills
+          Front-end Skills
         </h2>
-        <h4 className="my-skills px-3 text-white mb-5">
+        <h4 className="my-skills px-3 text-white">
           <ul className="row justify-content-around">
-            {backendSkills.map(skill => (
+            {frontendSkills.map((skill) => (
               <li
                 data-aos="zoom-in"
                 data-aos-offset="0"
