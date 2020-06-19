@@ -1,43 +1,54 @@
+require("dotenv").config();
 const { createServer } = require("http");
 const express = require("express");
-const app = express();
+let server = express();
 const morgan = require("morgan");
 const compression = require("compression");
 const path = require("path");
 var favicon = require("serve-favicon");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 require("./db/config/config");
+const next = require("next");
 
-const dev = app.get("env") !== "production";
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
 if (!dev) {
-  app.disable("x-powerd-by");
-  app.use(morgan("common"));
-  app.use(compression());
+  server.disable("x-powerd-by");
+  server.use(morgan("common"));
+  server.use(compression());
 }
 
 if (dev) {
-  app.use(morgan("dev"));
+  server.use(morgan("dev"));
 }
 
-app.use(express.static(path.resolve(__dirname, "client", "build")));
-app.use(favicon(path.resolve(__dirname, "client", "build", "favicon.ico")));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+server.use(cors());
+server.use(express.static(path.resolve(__dirname, "public", "static")));
+// server.use(favicon(path.resolve(__dirname, "client", "build", "favicon.ico")));
+server.use(express.urlencoded({ extended: false }));
+server.use(express.json());
+server.use(cookieParser());
+server.use("/api/projects", require("./routes/projects.route"));
+server.use("/api/user", require("./routes/user.route"));
 
-app.use("/api/projects", require("./routes/projects.route"));
-app.use("/api/user", require("./routes/user.route"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
+(async () => {
+  try {
+    await app.prepare();
+    server.get("*", (req, res) => {
+      return handle(req, res);
+    });
+    server = createServer(server);
 
-const server = createServer(app);
-
-const PORT = parseInt(process.env.PORT) || 5000;
-server.listen(PORT, err => {
-  if (err) console.log(err);
-  console.log(`Server Runinng at port ${PORT}`);
-});
-
-// app.listen(PORT, () => {
-//   console.log(`Listening on port : ${PORT}`);
-// });
+    const PORT = parseInt(process.env.PORT) || 5000;
+    server.listen(PORT, (err) => {
+      if (err) console.log(err);
+      console.log(`Server Runinng at port ${PORT}`);
+    });
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+})();

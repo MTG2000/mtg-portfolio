@@ -1,0 +1,1 @@
+{"version":1,"pages404":true,"basePath":"","redirects":[],"rewrites":[],"headers":[],"dynamicRoutes":[],"dataRoutes":[{"page":"/projects","dataRouteRegex":"^\\/_next\\/data\\/SBiIKmGV0xMFuxOCHFWZG\\/projects.json$"},{"page":"/projects/add","dataRouteRegex":"^\\/_next\\/data\\/SBiIKmGV0xMFuxOCHFWZG\\/projects\\/add.json$"}]}

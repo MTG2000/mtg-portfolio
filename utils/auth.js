@@ -9,7 +9,7 @@ module.exports = {
         issuer: issuer || "",
         subject: subject || "",
         audience: audience || "",
-        expiresIn: "30d"
+        expiresIn: "30m",
       };
     }
     return jwt.sign(payload, process.env.SECRET_KEY, signingOptions);
@@ -24,7 +24,7 @@ module.exports = {
         subject,
         audience,
         expiresIn,
-        algorithem
+        algorithem,
       };
     }
 
@@ -35,8 +35,8 @@ module.exports = {
     }
   },
 
-  decode: token => {
+  decode: (token) => {
     return jwt.decode(token, { complete: true });
     //returns null if token is invalid
-  }
+  },
 };

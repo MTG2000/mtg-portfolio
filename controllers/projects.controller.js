@@ -11,19 +11,19 @@ const getPosts = async (req, res) => {
 };
 
 const addPost = async (req, res) => {
-  const token = req.body.token || "-1";
+  const token = req.cookies.accessToken || "-1";
   if (auth.verify(token)) {
-    const result = await service.addProject(req.body.data);
-    if (result) res.send({ success: true });
+    // const result = await service.addProject(req.body.data);
+    if (true) res.send({ success: true });
   } else {
-    res.send({
+    res.status(401).send({
       success: false,
-      message: "Token Probably not valid :( or there was a proplem inserting"
+      message: "Token Probably not valid :( or there was a proplem inserting",
     });
   }
 };
 
 module.exports = {
   getPosts,
-  addPost
+  addPost,
 };

@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nimport Navbar from \"./Navbar\";\nimport Overlay from \"./Overlay\";\n\nconst Layout = props => {\n  return __jsx(React.Fragment, null, __jsx(Navbar, null), __jsx(Overlay, null), props.children);\n};\n\nexport default Layout;","map":null,"metadata":{},"sourceType":"module"}
